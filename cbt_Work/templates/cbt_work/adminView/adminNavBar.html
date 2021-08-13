@@ -1,0 +1,78 @@
+{% block adminNavBar %}
+
+<style>
+  /* @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap'); */
+
+  .navbar {
+    /* background-image: linear-gradient(to left, rgb(216, 75, 40), rgb(219, 115, 115)); */
+    font-family: 'Lora', serif;
+    color: #fff;
+    width: calc(100% - 240px);
+    height: 60px;
+    margin-left: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0 20px 0 200px;
+  }
+  .searchForm {
+    width: auto;
+    height: auto;
+    display: none;
+  }
+  .searchArea {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    width: 600px;
+    height: 40px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* color: #fff; */
+  }
+  .searchInp {
+    width: 480px;
+    font-size: 16px;
+    /* background: transparent; */
+    border: none;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .searchInp:focus {
+    /* background: transparent; */
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .searchIcon {
+    color: #fff;
+  }
+  .adminData {
+    font-size: 20px;
+    color: #fff;
+  }
+  
+</style>
+
+<body>
+    
+  <nav class="navbar navbar-dark bg-dark">
+
+    <form class="form-inline">
+      <input class="form-control searchInp mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <div class="adminData">
+      {% if user.is_authenticated %}
+        <span class="admin_name text-justify"> {{user.username}} </span>
+      {% endif %}
+    </div>
+
+  </nav>
+
+</body>
+
+
+{% endblock %}

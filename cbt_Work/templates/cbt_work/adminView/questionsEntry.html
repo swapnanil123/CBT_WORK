@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block questionEntry %}
+
+
+{% block adminNav %} {% include 'cbt_work/adminView/adminNavBar.html' %} {% endblock %}
+{% block adminSideBar %} {% include 'cbt_work/adminView/adminSideBar.html' %} {% endblock %}
+
+
+<style>
+    .main {
+        /* border: 3px solid black; */
+        position: absolute;
+        width: calc(100% - 240px);
+        height: calc(100% - 60px);
+        right: 0;
+        background: rgb(253, 242, 242);
+        overflow-y: scroll;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: rgb(122, 122, 122);
+    }
+    ::-webkit-scrollbar-track {
+        background: #c5c5c5;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #000;
+        border-radius: 10px;
+        height: 10px;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 50px;
+    }
+    .qtnCounter {
+        border: 1px solid rgb(240, 130, 67);
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 5px 2px rgb(255, 183, 183);
+    }
+    .hTag {
+        margin: 0;
+    }
+    .submitBtn {
+        width: 100%;
+        height: 40px;
+        background-image: linear-gradient(to right, rgb(240, 130, 67), rgb(241, 98, 122));
+        color: #fff;
+        font-size: 18px;
+        margin-top: 15px;
+        outline: none;
+        border: none;
+        transition: all 0.5s ease;
+    }
+    .formContainer {
+        border: 1px solid transparent;
+        border-radius: 5px;
+        width: 90%;
+        padding: 20px 20px;
+        background: rgb(255, 247, 247);
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        box-shadow: 0px 0px 10px 2px rgb(255, 183, 183);
+    }
+    .head {
+        width: 100%;
+        /* border: 1px solid black; */
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Lora', serif;
+        font-size: 20px;
+    }
+    .inp{
+        border: 2px solid rgb(241, 98, 122);
+        background: transparent;
+        height: 45px;
+        
+    }
+    .inp:focus{
+        border: 2px solid rgb(241, 98, 122);
+        background: transparent;
+    }
+    .form-label {
+        color: rgb(247, 65, 95);
+        font-family: 'Georama', sans-serif;
+        position: absolute;
+        top: 11px;
+        left: 20px;
+        padding: 0 8px;
+        transition: all 0.3s ease;
+    }
+    .inp:focus ~ .form-label,
+    .inp:valid ~ .form-label {
+        transform: translate(-5px, -20px);
+        background-color: rgb(255, 247, 247);
+        font-size: 14px;
+        color: rgb(241, 98, 122);
+    }
+    .submitBtn:hover {
+        color: #fff;
+        background-color: #2ccea3;
+        background-image: linear-gradient(to left, rgb(240, 130, 67), rgb(241, 98, 122));
+    }
+    .formWrapper {
+        position: relative;
+    }
+</style>
+
+<body>
+    
+    <div class=" main container">
+
+        <div class="header pt-4">
+            <div>
+                <h3>Question Entry</h3>
+            </div>
+            <div class="qtnCounter">
+                <div >
+                    <h6 class="hTag">Total Questions Inserted : </h6>
+                </div> &nbsp;&nbsp;
+                0/20
+            </div>
+        </div>
+        <div class="formContainer container">
+            <div class="head">
+                <span>Subject : </span>
+                <span>Semester : </span>
+                <span>Paper Code : </span>
+                
+            </div>
+
+            <form action="#" class="subForm" autocomplete="off">
+                <div class="formWrapper mb-4">
+                    <input type="text" name="question" class="inp form-control shadow-none outline-none" id="qtn" required>
+                    <label for="qtn" class="form-label label">Question</label>
+
+                </div>
+                <div class=" formWrapper mb-4">
+                    <input type="text" name="option" class="inp form-control shadow-none outline-none" id="option" required>
+                    <label for="option" class="form-label label">Option One</label>
+
+                </div>
+                <div class="formWrapper mb-4">
+                    <input type="text" name="option" class="inp form-control shadow-none outline-none" id="option" required>
+                    <label for="option" class="form-label label">Option Two</label>
+
+                </div>
+                <div class="formWrapper mb-4">
+                    <input type="text" name="option" class="inp form-control shadow-none outline-none" id="option" required>
+                    <label for="option" class="form-label label">Option Three</label>
+
+                </div>
+                <div class="formWrapper mb-4">
+                    <input type="text" name="option" class="inp form-control shadow-none outline-none" id="option" required>
+                    <label for="option" class="form-label label">Option Four</label>
+
+                </div>
+                <div class="formWrapper mb-4">
+                    <input type="text" name="option" class="inp form-control shadow-none outline-none" id="option" required>
+                    <label for="option" class="form-label label">Currect Answer</label>
+
+                </div>
+                
+                <div class="btn_area">
+                    <input type="submit" name="subBtn" class="btn submitBtn shadow-none" id="subBtn" value="Insert">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+
+{% endblock %}

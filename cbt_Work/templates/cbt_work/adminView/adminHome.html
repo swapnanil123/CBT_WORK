@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% block adminHome %}
+
+
+{% block adminNav %} {% include 'cbt_work/adminView/adminNavBar.html' %} {% endblock %}
+{% block adminSideBar %} {% include 'cbt_work/adminView/adminSideBar.html' %} {% endblock %}
+
+
+<style>
+    .main {
+        /* border: 3px solid black; */
+        position: absolute;
+        width: calc(100% - 240px);
+        height: calc(100% - 60px);
+        right: 0;
+        background: rgb(253, 242, 242);
+        overflow-y: scroll;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: rgb(122, 122, 122);
+    }
+    ::-webkit-scrollbar-track {
+        background: #c5c5c5;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #000;
+        border-radius: 10px;
+        height: 10px;
+    }
+
+    .dash_cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 2rem;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 25px;
+        cursor: pointer;
+        grid-column-gap: 1.5rem;
+    }
+    
+    .card_single {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px rgb(167, 165, 165);
+        transition: all 0.3s ease;
+        color: #fff;
+    }
+    .card_single:hover {
+        transform: scale(1.04);
+    }
+    .card_body {
+        padding: 1rem;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 20px;
+    }  
+    .tableRecord {
+        border: 1px solid black;
+        border-radius: 8px;
+        margin-top: 60px;
+        padding: 10px;
+        height: auto;
+    }
+
+    tr,th,td {
+        border: 1px solid black;
+    }
+    .badge {
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .dash_cards a {
+        text-decoration: none;
+    }
+    @media only screen and (max-width: 860px) {
+        .dash_cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card_single {
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .dash_cards {
+            grid-template-columns: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 450px) {
+        main {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+</style>
+
+<body>
+    
+    <div class=" main container">
+
+        <div class="heading pt-4">
+            <h3>Dashboard</h3>
+        </div>
+
+        <div class="dash_cards">
+            <a href="/subjectSelect">
+                <div class="card_single bg-primary">
+                    <div class="card_body">
+                        <div>
+                            <span>Exam Entry</span>
+                        </div>
+                        <div>
+                            <i class="fa fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/studentList">
+                <div class="card_single bg-warning">
+                    <div class="card_body">
+                        <div>
+                            <span>Students</span>
+                        </div>
+                        <i class="fa fa-chevron-right"></i>
+                    </div>
+                </div>
+            </a>
+
+            <div class="card_single bg-success">
+                <div class="card_body">
+                    <div>
+                        <span>Result</span>
+                    </div>
+                    <i class="fa fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <div class="card_single bg-danger">
+                <div class="card_body">
+                    <div>
+                        <span>Action</span>
+                    </div>
+                    <i class="fa fa-chevron-right"></i>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <div class="tableRecord">
+
+            <table class="table table-striped text-center">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">Exam Code</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Paper Code</th>
+                    <th scope="col">Semester</th>
+                    <th scope="col">Total Question</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>
+                        <span class="badge badge-pill badge-danger p-1">Not Started</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>
+                        <span class="badge badge-pill badge-success p-1">Running</span>
+                    </td>
+                  </tr>
+                  
+                                    
+                </tbody>
+            </table>  
+
+        </div>
+    </div>
+
+</body>
+
+
+{% endblock %}

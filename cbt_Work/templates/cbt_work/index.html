@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block index %}
+
+{% load static %}
+
+{% block navBar %} {% include 'cbt_work/commonNavBar.html' %} {% endblock %}
+{% block footer %} {% include 'cbt_work/commonFooter.html' %} {% endblock %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap');
+
+    
+    .main {
+        /* border: 1px solid black; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(247, 217, 217);
+        width: 100%;
+        height: calc(100% - (56px + 50px));
+    }
+    .controlBtns {
+        width: 700px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        /* border: 1px solid black; */
+    }
+    .btn {
+        width: 180px;
+        height: 40px;
+        border: 1px solid rgb(252, 187, 49);
+        /* background-color: #10275a; */
+        background-image: linear-gradient(to right, rgb(243, 120, 49), rgb(235, 70, 98));
+        color: rgba(44, 43, 43, 0.521);
+        box-shadow: 0px 0px 10px  rgb(252, 108, 24);
+        font-family: 'Lora', serif;
+        transition: all 0.5s ease;
+    }
+    .btn:hover {
+        transform: scale(1.1);
+        background-image: linear-gradient(to left, rgb(240, 130, 67), rgb(241, 98, 122));
+        color: #000;
+    }
+    
+</style>
+
+<body>
+    
+    <div class="main container-fluid">
+        <div class="controlBtns">
+            {% if user.is_authenticated %}
+            <a href="/adminHome">
+                <button class="btn border-none" type="button" value="LOGIN"> LOGIN </button>
+            </a>
+            {% else %}
+            <a href="/getAdminLogin">
+                <button class="btn border-none" type="button" value="LOGIN"> LOGIN </button>
+            </a>
+            {% endif %}
+
+            <input class="btn border-none" id="testBtn" type="submit" value="TEST">
+            <input class="btn border-none" id="stdBtn" type="reset" value="STUDENT">
+        </div>
+    </div>
+    
+</body>
+
+<script src="{% static 'cbt_work/js/index.js' %}"></script>
+
+{% endblock %}

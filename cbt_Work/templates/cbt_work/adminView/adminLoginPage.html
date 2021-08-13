@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block adminLoginPage %}
+
+
+{% block navBar %} {% include 'cbt_work/commonNavBar.html' %} {% endblock %}
+{% block footer %} {% include 'cbt_work/commonFooter.html' %} {% endblock %}
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap');
+
+.wrapper {
+    /* border: 2px solid black; */
+    position: absolute;
+    width: 100%;
+    height: calc(100% - (56px + 50px));
+    margin-top: 56px;
+    padding: 0;
+    background: rgb(247, 217, 217);
+}
+
+.formContainer {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: 500px;
+    height: 62%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    margin: 0;
+    background: rgb(247, 228, 228);
+    box-shadow: 5px 5px 15px 0 rgb(255, 132, 132);
+}
+.head {
+    width: 100%;
+    /* border: 1px solid black; */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lora', serif;
+    font-size: 23px;
+}
+.inp {
+    border: 2px solid rgb(241, 98, 122);
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    padding: 0 20px;
+    background: rgb(247, 228, 228);
+}
+.password {
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+.label {
+    color: #b8b8b8;
+    position: absolute;
+    left: 65px;
+    margin-top: 8px;
+    padding: 0 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.inp:focus ~ .label,
+.inp:valid ~ .label {
+    transform: translate(-5px, -20px);
+    background-color: rgb(247, 228, 228);
+    font-size: 14px;
+    color: rgb(241, 98, 122);
+}
+.btn {
+    width: 100%;
+    height: 40px;
+    background-image: linear-gradient(to right, rgb(240, 130, 67), rgb(241, 98, 122));
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    transition: all 0.5s ease;
+}
+.btn:hover {
+    color: #fff;
+    background-color: #2ccea3;
+    background-image: linear-gradient(to left, rgb(240, 130, 67), rgb(241, 98, 122));
+}
+.magArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(230, 75, 75);
+    font-size: 16px;
+    text-shadow: 0px 0px 12px rgb(231, 115, 5);
+}
+
+</style>
+
+<body>
+    
+    <div class="wrapper container-fluid">
+        <div class="formContainer container">
+            <div class="head">
+                <span>Admin Login</span>
+            </div>
+            <form id="adminLoginForm" action="/accounts/login" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="username">
+                    <input type="text" name="username" class="inp" id="user" required>
+                    <label for="user" class="label">Username</label>
+                </div>
+                <div class="password">
+                    <input type="password" name="pass" class="inp" id="pass" required>
+                    <label for="pass" class="label">Password</label>
+                </div>
+                <div class="btn_area">
+                    <input type="submit" name="subBtn" class="btn shadow-none" id="subBtn" value="Login">
+                </div>
+
+                
+            </form>
+            <div class="magArea mt-2">
+                
+                {% if messages %}
+                {% for message in messages %}
+                <span> {{message}} </span>
+                {% endfor %}
+                {% endif %}
+
+            </div>
+    </div>
+    </div>
+
+</body>
+
+
+{% endblock %}

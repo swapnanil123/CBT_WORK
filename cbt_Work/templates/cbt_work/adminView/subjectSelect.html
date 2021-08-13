@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block subjectSelect %}
+
+{% load static %}
+
+{% block adminNav %} {% include 'cbt_work/adminView/adminNavBar.html' %} {% endblock %}
+{% block adminSideBar %} {% include 'cbt_work/adminView/adminSideBar.html' %} {% endblock %}
+
+
+<style>
+
+    .main {
+        /* border: 3px solid black; */
+        position: absolute;
+        width: calc(100% - 240px);
+        height: calc(100% - 60px);
+        right: 0;
+        background: rgb(253, 242, 242);
+        overflow-y: scroll;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: rgb(122, 122, 122);
+    }
+    ::-webkit-scrollbar-track {
+        background: #c5c5c5;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #000;
+        border-radius: 10px;
+        height: 10px;
+    }
+    header {
+        border: 1px solid black;
+    }
+    .alert {
+        font-size: 16px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .alert:hover {
+        transform: scale(1.03);
+    }
+</style>
+
+<body>
+    
+    <div class=" main container pl-3 pr-3">
+
+        <div class="header pt-4">
+            <h3>Select Suject</h3>
+        </div>
+
+        <div class="subjects pt-3 pl-4 pr-4 text-center">
+
+            <div class="alert alert-primary" id="sub_beng" onclick="getId(this.id)" role="alert">
+                <strong> Bengali </strong>
+            </div>
+            <div class="alert alert-secondary" id="sub_eng" onclick="getId(this.id)" role="alert">
+                <strong> English </strong>
+            </div>
+            <div class="alert alert-success" id="sub_cmsh" onclick="getId(this.id)" role="alert">
+                <strong> Computer Science </strong>
+            </div>
+            <div class="alert alert-danger" id="sub_math" onclick="getId(this.id)" role="alert">
+                <strong> Mathematics </strong>
+            </div>
+            <div class="alert alert-warning" id="sub_phy" onclick="getId(this.id)" role="alert">
+                <strong> Physics </strong>
+            </div>
+            <div class="alert alert-info" id="sub_che" onclick="getId(this.id)" role="alert">
+                <strong> Chemistry </strong>
+            </div>
+            <div class="alert alert-light" id="sub_geo" onclick="getId(this.id)" role="alert">
+                <strong> Geography </strong>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+<script src="{% static 'cbt_work/js/stujectSelect.js' %}"></script>
+
+{% endblock %}

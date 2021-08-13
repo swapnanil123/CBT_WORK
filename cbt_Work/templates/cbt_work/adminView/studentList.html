@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block studentList %}
+
+
+{% block adminNav %} {% include 'cbt_work/adminView/adminNavBar.html' %} {% endblock %}
+{% block adminSideBar %} {% include 'cbt_work/adminView/adminSideBar.html' %} {% endblock %}
+
+
+<style>
+    .main {
+        /* border: 3px solid black; */
+        position: absolute;
+        width: calc(100% - 240px);
+        height: calc(100% - 60px);
+        right: 0;
+        background: rgb(253, 242, 242);
+        overflow-y: scroll;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: rgb(122, 122, 122);
+    }
+    ::-webkit-scrollbar-track {
+        background: #c5c5c5;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #000;
+        border-radius: 10px;
+        height: 10px;
+    }
+    .studentUserIdArea {
+        /* border: 1px solid black; */
+        color: #fff;
+        width: 100%;
+        padding: 0 320px;
+    }
+    .userIdBtn {
+        border: 2px solid rgb(241, 98, 122);
+        background-image: linear-gradient(to right, rgb(245, 135, 71), rgb(250, 77, 106));
+        color: #fff;
+        outline: none;
+    }
+    .userIdBtn:hover {
+        background-image: linear-gradient(to left, rgb(245, 135, 71), rgb(250, 77, 106));
+        color: #fff;
+    }
+    .tableRecord {
+        margin-top: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .viewButton {
+        background-image: linear-gradient(to left, rgb(245, 135, 71), rgb(250, 77, 106));
+        color: #fff;
+    }
+    .viewButton:hover {
+        background-image: linear-gradient(to top, rgb(245, 135, 71), rgb(250, 77, 106));
+        color: #fff;
+    }
+    .table {
+        box-shadow: 0 0 5px 1px rgb(252, 169, 122);
+        border-radius: 2px;
+    }
+    .tableHeader {
+        background: rgb(248, 182, 182);
+    }
+</style>
+
+<body>
+    <div class=" main container">
+
+        <div class="heading pt-4">
+            <h3>Student List</h3>
+        </div>
+
+        <div class="studentUserIdArea mt-4">
+            <input type="submit" class="btn shadow-none userIdBtn form-control" name="stdUserBtn" id="stdUserBtn" value="Student User ID">
+        </div>
+        
+
+        <div class="tableRecord">
+
+            <table class="table table-striped text-center">
+                <thead class="tableHeader">
+                  <tr>
+                    <th scope="col">Exam ID</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Total Student</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>
+                        <input type="submit" class="btn viewButton shadow-none" name="viewBtn" id="viewBtn" value="View">
+                    </td>
+                  </tr> -->
+                  
+                  
+                                    
+                </tbody>
+            </table>  
+
+        </div>
+
+    </div>
+
+
+</body>
+{% endblock %}

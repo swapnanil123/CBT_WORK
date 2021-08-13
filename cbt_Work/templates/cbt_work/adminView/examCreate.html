@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block exmaCreate %}
+
+{% load static %}
+
+{% block adminNav %} {% include 'cbt_work/adminView/adminNavBar.html' %} {% endblock %}
+{% block adminSideBar %} {% include 'cbt_work/adminView/adminSideBar.html' %} {% endblock %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Georama:wght@200;400&display=swap');    
+    .main {
+        /* border: 3px solid black; */
+        position: absolute;
+        width: calc(100% - 240px);
+        height: calc(100% - 60px);
+        right: 0;
+        background: rgb(253, 242, 242);
+        overflow-y: scroll;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: rgb(122, 122, 122);
+    }
+    ::-webkit-scrollbar-track {
+        background: #c5c5c5;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #000;
+        border-radius: 10px;
+        height: 10px;
+    }
+    /* .subForm {
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: 15px;
+        width: 55%;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        box-shadow: 0px 0px 20px 0 rgb(255, 157, 157);
+    } */
+    .submitBtn {
+        width: 100%;
+        height: 40px;
+        background-image: linear-gradient(to right, rgb(240, 130, 67), rgb(241, 98, 122));
+        color: #fff;
+        font-size: 18px;
+        margin-top: 20px;
+        outline: none;
+        border: none;
+        transition: all 0.5s ease;
+    }
+    .formContainer {
+        border: 1px solid transparent;
+        border-radius: 5px;
+        width: 55%;
+        padding: 20px 20px;
+        background: rgb(255, 247, 247);
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        box-shadow: 0px 0px 20px 0 rgb(255, 183, 183);
+    }
+    .head {
+        width: 100%;
+        /* border: 1px solid black; */
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Lora', serif;
+        font-size: 26px;
+    }
+    .inp{
+        border: 2px solid rgb(241, 98, 122);
+        background: transparent;
+    }
+    .inp:focus{
+        border: 2px solid rgb(241, 98, 122);
+        background: transparent;
+    }
+    .form-label {
+        color: rgb(247, 65, 95);
+        font-family: 'Georama', sans-serif;
+    }
+    .submitBtn:hover {
+        color: #fff;
+        background-color: #2ccea3;
+        background-image: linear-gradient(to left, rgb(240, 130, 67), rgb(241, 98, 122));
+    }
+
+</style>
+
+<body>
+    
+    <div class=" main container pl-3 pr-3">
+
+        <div class="header pt-4">
+            <h3>Create Exam</h3>
+        </div>
+        <div class="formContainer container">
+            <div class="head" id="head">
+                <span>Subject</span>
+            </div>
+
+            <form action="#" class="subForm" autocomplete="off">
+                <div class="paperNameArea mb-3">
+                    <label for="paperName" class="form-label label">Paper Code</label>
+                    <input type="text" name="paperName" class="inp form-control shadow-none outline-none" id="paperName" required>
+                    
+                </div>
+                <div class="mb-3">
+                    <label class="form-label ">Course</label>
+                    <select class="form-select inp form-select-sm form-control shadow-none outline-none" aria-label=".form-select-lg example" id="course">
+                        <option selected disabled>Select Course</option>
+                        <option value="Core Course" id="Core Course">Core Course (CC)</option>
+                        <option value="General" id="General">General</option>
+                        <option value="General Elective" id="General Elective">General Elective (GE)</option>
+                        <option value="Skill Enhancement Course" id="SEC">Skill Enhancement Course (SEC)</option>
+                        <option value="Discipline Specific Elective" id="DSE">Discipline Specific Elective (DSE)</option>
+                        <option value="Ability Enhancement Compulsory Course" id="AECC">Ability Enhancement Compulsory Course (AECC)</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label ">Semester</label>
+                    <select class="form-select inp form-select-sm  form-control shadow-none outline-none" aria-label=".form-select-lg example" id="semName">
+                        <option selected disabled>Select Semester</option>
+                        <option value="Semester 1" id="1">Semester 1</option>
+                        <option value="Semester 2" id="2">Semester 2</option>
+                        <option value="Semester 3" id="3">Semester 3</option>
+                        <option value="Semester 4" id="4">Semester 4</option>
+                        <option value="Semester 5" id="5">Semester 5</option>
+                        <option value="Semester 6" id="6">Semester 6</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label ">Total number of questions</label>
+                    <select class="form-select inp form-select-sm  form-control shadow-none outline-none" aria-label=".form-select-lg example" id="totalNoQtn">
+                        <option selected disabled>Select Total Number of Question</option>
+                        <option value="2" id="2">2</option>
+                        <option value="5" id="5">5</option>
+                        <option value="10" id="10">10</option>
+                        <option value="15" id="15">15</option>
+                        <option value="20" id="20">20</option>
+                        <option value="30" id="30">30</option>
+                        
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label ">Total time allotted (in minutes)</label>
+                    <select class="form-select inp form-select-sm  form-control shadow-none outline-none" aria-label=".form-select-lg example" id="duration">
+                        <option selected disabled>Select Duration</option>
+                        <option value="10" id="10">10</option>
+                        <option value="20" id="20">20</option>
+                        <option value="30" id="30">30</option>
+                        <option value="40" id="40">40</option>
+                        <option value="50" id="50">50</option>
+                        <option value="60" id="60">60</option>
+                    </select>                          
+                </div>
+                <div class="btn_area">
+                    <input type="submit" name="subBtn" class="btn submitBtn shadow-none" id="subBtn" value="Create">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="{% static 'cbt_work/js/exmaCreate.js' %}"></script>
+
+{% endblock %}
